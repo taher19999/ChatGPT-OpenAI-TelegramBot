@@ -20,7 +20,7 @@ async function ask(question) {
 
 export default catchAsync(async function askHandler(ctx) {
   if (ctx.message.from.is_bot)
-    throw new BotError('Unauthorized user. Only for humans!', '/ask', ctx);
+    throw new BotError('مستخدم غير مصرح له. فقط للبشر!', '/ask', ctx);
 
   const words = ctx.message.text.split(' ');
 
@@ -29,7 +29,7 @@ export default catchAsync(async function askHandler(ctx) {
   let question = words.join(' ');
 
   if (question.length == 0)
-    throw new BotError('Sorry! Please type something after /ask', '/ask', ctx);
+    throw new BotError('آسف! الرجاء كتابة شيء بعد /ask', '/ask', ctx);
 
   ctx.sendChatAction('typing');
 
