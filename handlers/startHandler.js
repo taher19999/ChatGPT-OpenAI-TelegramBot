@@ -2,6 +2,6 @@ import catchAsync from '../utils/catchAsync.js';
 
 export default catchAsync(async ctx => {
   await ctx.reply(
-    'Hi! This is an unofficial personal bot of OpenAI. Thank you for choosing me!\n\n Type /help to see available commands! Enjoy it!'
+    'مرحبا بك في بوت الذكاء الاصطناعي غير رسمي لشركة openAI\n\n اكتب /help للمساعدة\n\n مطور البوت:@ta_ja199 '
   );
 });
