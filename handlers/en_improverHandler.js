@@ -7,7 +7,7 @@ let conversation = null;
 async function improver(question) {
   if (conversation !== null) {
     conversation = await api.sendMessage(
-      `I want you to act as an English translator, spelling corrector and improver. I will speak to you in any language and you will detect the language, translate it and answer in the corrected and improved version of my text, in English. I want you to replace my simplified A0-level words and sentences with more beautiful and elegant, upper level English words and sentences. Keep the meaning same, but make them more literary. I want you to only reply the correction, the improvements and nothing else, do not write explanations. My first sentence is "${question}"`,
+      `أريدك أن تعمل كمترجم إنجليزي ومصحح إملائي ومُحسِّن. سأتحدث معك بأي لغة وستكتشف اللغة وترجمتها وتجيب بالنسخة المصححة والمحسنة من نصي باللغة الإنجليزية. أريدك أن تستبدل كلمات وجمل المستوى A0 المبسطة بكلمات وجمل إنجليزية أكثر جمالاً وأناقة. حافظ على المعنى نفسه ، ولكن اجعلهم أكثر أدبية. أريدك أن تجيب فقط على التصحيح والتحسينات ولا شيء غير ذلك ، لا تكتب التفسيرات. جملتي الأولى هي"${question}"`,
       {
         conversationId: conversation.conversationId,
         parentMessageId: conversation.messageId,
@@ -23,7 +23,7 @@ async function improver(question) {
 export default catchAsync(async ctx => {
   if (ctx.message.from.is_bot)
     throw new BotError(
-      'Unauthorized user. Only for humans!',
+      'مستخدم غير مصرح له. فقط للبشر',
       '/en_improver',
       ctx
     );
@@ -36,7 +36,7 @@ export default catchAsync(async ctx => {
 
   if (question.length == 0)
     throw new BotError(
-      'Sorry! Please type something after /en_improver',
+      'آسف! الرجاء كتابة شيء بعد /en_improver',
       '/en_improver',
       ctx
     );
